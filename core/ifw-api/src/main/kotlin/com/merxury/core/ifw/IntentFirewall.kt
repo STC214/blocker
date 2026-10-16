@@ -29,9 +29,12 @@ import com.merxury.core.ifw.model.IfwFilter
 import com.merxury.core.ifw.model.IfwRule
 import com.merxury.core.ifw.model.IfwRules
 import com.merxury.core.ifw.xml.IfwXmlDeserializer
-import com.merxury.core.ifw.xml.IfwXmlParseException
 import com.merxury.core.ifw.xml.IfwXmlSerializer
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import timber.log.Timber
+import java.util.concurrent.ConcurrentHashMap
 import javax.inject.Inject
 
 internal class IntentFirewall @Inject constructor(
@@ -43,15 +46,24 @@ internal class IntentFirewall @Inject constructor(
 ) : IIntentFirewall {
     // Cache for the loaded rules to avoid IO operations
     // Key: package name, Value: IfwRules
-    private val cache: MutableMap<String, IfwRules> = mutableMapOf()
+    private val cache: MutableMap<String, IfwRules> = ConcurrentHashMap()
+
+    // Protect the whole read-modify-save cycle, not only the final file write.
+    private val mutationMutex = Mutex()
 
     // ── Core API ───────────────────────────────────────────────────────
 
-    override suspend fun getRules(packageName: String): IfwRules {
+    override suspend fun getRules(packageName: String): IfwRules = mutationMutex.withLock {
+        loadRules(packageName)
+    }
+
+    private suspend fun loadRules(packageName: String, forMutation: Boolean = false): IfwRules {
+        if (forMutation) cache.remove(packageName)
         cache[packageName]?.let { return it }
         if (!rootChecker.isRootAvailable()) {
             Timber.v("Root unavailable, cannot load rules")
-            return cacheEmpty(packageName)
+            if (forMutation) throw RootUnavailableException()
+            return IfwRules.empty()
         }
         val fileContent = fileSystem.readRules(packageName)
         if (fileContent == null) {
@@ -63,18 +75,24 @@ internal class IntentFirewall @Inject constructor(
             val rules = deserializer.deserialize(fileContent)
             cache[packageName] = rules
             rules
-        } catch (e: IfwXmlParseException) {
-            Timber.e(e, "Failed to parse IFW rules for $packageName")
-            cacheEmpty(packageName)
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
-            Timber.e(e, "Error reading IFW rules for $packageName")
-            cacheEmpty(packageName)
+            Timber.e(e, "Failed to parse IFW rules for $packageName")
+            if (forMutation) throw e
+            IfwRules.empty()
         }
     }
 
-    override suspend fun saveRules(packageName: String, rules: IfwRules) {
+    override suspend fun saveRules(packageName: String, rules: IfwRules) = mutationMutex.withLock {
+        persistRules(packageName, rules)
+    }
+
+    private suspend fun persistRules(packageName: String, rules: IfwRules) {
+        // A failed relock can mean the XML was already committed. Never retain stale state.
+        cache.remove(packageName)
         if (rules.isEmpty()) {
-            clear(packageName)
+            clearRules(packageName)
             return
         }
         val xml = serializer.serialize(rules)
@@ -83,13 +101,17 @@ internal class IntentFirewall @Inject constructor(
         Timber.i("Saved IFW rules for $packageName")
     }
 
-    override suspend fun clear(packageName: String) {
+    override suspend fun clear(packageName: String) = mutationMutex.withLock {
+        clearRules(packageName)
+    }
+
+    private suspend fun clearRules(packageName: String) {
         if (!rootChecker.isRootAvailable()) {
             throw RootUnavailableException()
         }
         Timber.d("Clear IFW rule for $packageName")
-        fileSystem.deleteRules(packageName)
         cache.remove(packageName)
+        fileSystem.deleteRules(packageName)
     }
 
     override fun resetCache() {
@@ -102,35 +124,35 @@ internal class IntentFirewall @Inject constructor(
     override suspend fun addComponentFilter(
         packageName: String,
         componentName: String,
-    ): Boolean {
+    ): Boolean = mutationMutex.withLock {
         if (!rootChecker.isRootAvailable()) {
             throw RootUnavailableException()
         }
-        val ifwComponentType = resolveIfwComponentType(packageName, componentName) ?: return false
+        val ifwComponentType = resolveIfwComponentType(packageName, componentName) ?: return@withLock false
         val formattedName = formatName(packageName, componentName)
         Timber.i("Add component filter for $formattedName")
 
-        val rules = getRules(packageName)
+        val rules = loadRules(packageName, forMutation = true)
         val updatedRules = rules.addComponentFilter(ifwComponentType, formattedName)
-        saveRules(packageName, updatedRules)
-        return true
+        persistRules(packageName, updatedRules)
+        true
     }
 
     override suspend fun removeComponentFilter(
         packageName: String,
         componentName: String,
-    ): Boolean {
+    ): Boolean = mutationMutex.withLock {
         if (!rootChecker.isRootAvailable()) {
             throw RootUnavailableException()
         }
-        val ifwComponentType = resolveIfwComponentType(packageName, componentName) ?: return false
+        val ifwComponentType = resolveIfwComponentType(packageName, componentName) ?: return@withLock false
         val formattedName = formatName(packageName, componentName)
         Timber.i("Remove component filter for $formattedName")
 
-        val rules = getRules(packageName)
+        val rules = loadRules(packageName, forMutation = true)
         val updatedRules = rules.removeComponentFilter(ifwComponentType, formattedName)
-        saveRules(packageName, updatedRules)
-        return true
+        persistRules(packageName, updatedRules)
+        true
     }
 
     override suspend fun addAllComponentFilters(
@@ -143,19 +165,25 @@ internal class IntentFirewall @Inject constructor(
         Timber.i("Add component filters for ${list.size} components")
         val groupedMap = list.groupBy { it.packageName }
         groupedMap.keys.forEach { packageName ->
-            var rules = getRules(packageName)
-            groupedMap[packageName]?.forEach componentLoop@{ component ->
-                val type = componentTypeResolver.getComponentType(packageName, component.className)
-                if (type == PROVIDER) {
-                    Timber.d("Cannot add IFW rule for $component")
-                    return@componentLoop
+            val committed = mutationMutex.withLock {
+                var rules = loadRules(packageName, forMutation = true)
+                val changed = mutableListOf<ComponentName>()
+                groupedMap[packageName]?.distinct()?.forEach componentLoop@{ component ->
+                    val type = componentTypeResolver.getComponentType(packageName, component.className)
+                    if (type == PROVIDER) {
+                        Timber.d("Cannot add IFW rule for $component")
+                        return@componentLoop
+                    }
+                    val ifwType = type.toIfwComponentType() ?: return@componentLoop
+                    val formattedName = component.flattenToString()
+                    rules = rules.addComponentFilter(ifwType, formattedName)
+                    changed += component
                 }
-                val ifwType = type.toIfwComponentType() ?: return@componentLoop
-                val formattedName = component.flattenToString()
-                rules = rules.addComponentFilter(ifwType, formattedName)
-                callback(component)
+                if (changed.isNotEmpty()) persistRules(packageName, rules)
+                changed
             }
-            saveRules(packageName, rules)
+            // Only notify after the package XML is committed AND directory protection restored.
+            committed.forEach { callback(it) }
         }
     }
 
@@ -169,19 +197,24 @@ internal class IntentFirewall @Inject constructor(
         Timber.i("Remove component filters for ${list.size} components")
         val groupedMap = list.groupBy { it.packageName }
         groupedMap.keys.forEach { packageName ->
-            var rules = getRules(packageName)
-            groupedMap[packageName]?.forEach componentLoop@{ component ->
-                val type = componentTypeResolver.getComponentType(packageName, component.className)
-                if (type == PROVIDER) {
-                    Timber.d("Cannot remove IFW rule for $component")
-                    return@componentLoop
+            val committed = mutationMutex.withLock {
+                var rules = loadRules(packageName, forMutation = true)
+                val changed = mutableListOf<ComponentName>()
+                groupedMap[packageName]?.distinct()?.forEach componentLoop@{ component ->
+                    val type = componentTypeResolver.getComponentType(packageName, component.className)
+                    if (type == PROVIDER) {
+                        Timber.d("Cannot remove IFW rule for $component")
+                        return@componentLoop
+                    }
+                    val ifwType = type.toIfwComponentType() ?: return@componentLoop
+                    val formattedName = component.flattenToString()
+                    rules = rules.removeComponentFilter(ifwType, formattedName)
+                    changed += component
                 }
-                val ifwType = type.toIfwComponentType() ?: return@componentLoop
-                val formattedName = component.flattenToString()
-                rules = rules.removeComponentFilter(ifwType, formattedName)
-                callback(component)
+                if (changed.isNotEmpty()) persistRules(packageName, rules)
+                changed
             }
-            saveRules(packageName, rules)
+            committed.forEach { callback(it) }
         }
     }
 
@@ -191,8 +224,8 @@ internal class IntentFirewall @Inject constructor(
     ): Boolean {
         val rules = getRules(packageName)
         val formattedName = formatName(packageName, componentName)
-        return IfwComponentType.entries.none { type ->
-            formattedName in rules.componentFiltersFor(type)
+        return rules.rules.none { rule ->
+            rule.block && IfwFilter.ComponentFilter(formattedName) in rule.filters
         }
     }
 
@@ -240,7 +273,10 @@ private fun IfwRules.addComponentFilter(
     name: String,
 ): IfwRules {
     val filter = IfwFilter.ComponentFilter(name)
-    val existingRule = rulesFor(componentType).firstOrNull()
+    // Do not append an unconditional block to a logging-only or conditional rule.
+    val existingRule = rulesFor(componentType).firstOrNull { rule ->
+        rule.block && rule.intentFilters.isEmpty() && rule.filters.all { it is IfwFilter.ComponentFilter }
+    }
     return if (existingRule != null) {
         if (existingRule.filters.contains(filter)) return this
         val updatedRule = existingRule.copy(filters = existingRule.filters + filter)
@@ -259,12 +295,12 @@ private fun IfwRules.removeComponentFilter(
     name: String,
 ): IfwRules {
     val filter = IfwFilter.ComponentFilter(name)
-    val existingRule = rulesFor(componentType).firstOrNull() ?: return this
-    val updatedFilters = existingRule.filters - filter
-    return if (updatedFilters.isEmpty()) {
-        IfwRules(rules.filter { it !== existingRule })
-    } else {
-        val updatedRule = existingRule.copy(filters = updatedFilters)
-        IfwRules(rules.map { if (it === existingRule) updatedRule else it })
-    }
+    return IfwRules(
+        rules.mapNotNull { rule ->
+            if (rule.componentType != componentType || filter !in rule.filters) return@mapNotNull rule
+            val remaining = rule.filters.filterNot { it == filter }
+            // Preserve intent selectors and conditions; remove every duplicate component selector.
+            if (remaining.isEmpty() && rule.intentFilters.isEmpty()) null else rule.copy(filters = remaining)
+        },
+    )
 }

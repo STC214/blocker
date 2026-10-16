@@ -1,0 +1,770 @@
+﻿[
+    {
+        "suite":  "com.merxury.blocker.ui.BlockerAppScreenSizesScreenshotTests",
+        "tests":  9,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "app-compose\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.ui.BlockerAppScreenSizesScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.ui.BlockerAppStateTest",
+        "tests":  5,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "app-compose\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.ui.BlockerAppStateTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.ui.SnackbarScreenshotTests",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "app-compose\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.ui.SnackbarScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.extension.ComponentInfoTest",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\common\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.extension.ComponentInfoTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.logging.ReleaseTreeTest",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\common\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.logging.ReleaseTreeTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.result.ResultKtExtendedTest",
+        "tests":  3,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\common\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.result.ResultKtExtendedTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.result.ResultKtTest",
+        "tests":  1,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\common\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.result.ResultKtTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.root.IfwDirectoryTransactionTest",
+        "tests":  8,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\common\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.root.IfwDirectoryTransactionTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.utils.ApkParserTest",
+        "tests":  11,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\common\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.utils.ApkParserTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.utils.ManifestParserTest",
+        "tests":  31,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\common\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.utils.ManifestParserTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.controllers.combined.CombinedControllerTest",
+        "tests":  14,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\component-controller\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.controllers.combined.CombinedControllerTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.controllers.ifw.IfwControllerTest",
+        "tests":  9,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\component-controller\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.controllers.ifw.IfwControllerTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.data.licenses.fetcher.AndroidLicensesFetcherImplTest",
+        "tests":  3,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\data\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.data.licenses.fetcher.AndroidLicensesFetcherImplTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.data.respository.debloater.CacheDebloatableComponentDataSourceTest",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\data\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.data.respository.debloater.CacheDebloatableComponentDataSourceTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.data.respository.debloater.DebloatableComponentEntityTest",
+        "tests":  5,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\data\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.data.respository.debloater.DebloatableComponentEntityTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.data.respository.debloater.LocalDebloatableComponentRepositoryTest",
+        "tests":  7,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\data\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.data.respository.debloater.LocalDebloatableComponentRepositoryTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.data.util.AppPermissionMonitorTest",
+        "tests":  1,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\data\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.data.util.AppPermissionMonitorTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.datastore.AppPropertiesSerializerTest",
+        "tests":  3,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\datastore\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.datastore.AppPropertiesSerializerTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.datastore.BlockerPreferencesDataSourceTest",
+        "tests":  25,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\datastore\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.datastore.BlockerPreferencesDataSourceTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.datastore.UserPreferencesSerializerTest",
+        "tests":  3,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\datastore\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.datastore.UserPreferencesSerializerTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.BackgroundScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.BackgroundScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.ButtonScreenshotTests",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.ButtonScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.CardScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.CardScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.CollapsingTopAppBarScreenshotTests",
+        "tests":  6,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.CollapsingTopAppBarScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.DynamicAsyncImageScreenshotTests",
+        "tests":  1,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.DynamicAsyncImageScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.FilterChipScreenshotTests",
+        "tests":  3,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.FilterChipScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.IconButtonScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.IconButtonScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.LoadingWheelScreenshotTests",
+        "tests":  3,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.LoadingWheelScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.NavigationScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.NavigationScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.SegmentedButtonsScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.SegmentedButtonsScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.TabsScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.TabsScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.TextFieldScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.TextFieldScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.ThemeTest",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.ThemeTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.TopAppBarScreenshotTests",
+        "tests":  10,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.TopAppBarScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.designsystem.ViewToggleScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\designsystem\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.designsystem.ViewToggleScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.domain.applist.SearchAppListUseCaseTest",
+        "tests":  16,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\domain\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.domain.applist.SearchAppListUseCaseTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.domain.components.SearchComponentsUseCaseTest",
+        "tests":  9,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\domain\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.domain.components.SearchComponentsUseCaseTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.domain.controller.GetAppControllerUseCaseTest",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\domain\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.domain.controller.GetAppControllerUseCaseTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.domain.controller.GetControllerUseCaseTest",
+        "tests":  5,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\domain\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.domain.controller.GetControllerUseCaseTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.domain.controller.GetServiceControllerUseCaseTest",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\domain\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.domain.controller.GetServiceControllerUseCaseTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.domain.GatherAllMatchedComponentsUseCaseTest",
+        "tests":  5,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\domain\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.domain.GatherAllMatchedComponentsUseCaseTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.domain.InitializeDatabaseUseCaseTest",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\domain\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.domain.InitializeDatabaseUseCaseTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.domain.ZipAllRuleUseCaseTest",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\domain\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.domain.ZipAllRuleUseCaseTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.git.DefaultGitClientTest",
+        "tests":  30,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\git\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.git.DefaultGitClientTest.xml"
+    },
+    {
+        "suite":  "com.merxury.core.ifw.editor.IfwRuleEditorMapperTest",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ifw-api\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.core.ifw.editor.IfwRuleEditorMapperTest.xml"
+    },
+    {
+        "suite":  "com.merxury.core.ifw.IntentFirewallMutationTest",
+        "tests":  12,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ifw-api\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.core.ifw.IntentFirewallMutationTest.xml"
+    },
+    {
+        "suite":  "com.merxury.core.ifw.IntentFirewallNewModelTest",
+        "tests":  14,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ifw-api\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.core.ifw.IntentFirewallNewModelTest.xml"
+    },
+    {
+        "suite":  "com.merxury.core.ifw.IntentFirewallTest",
+        "tests":  15,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ifw-api\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.core.ifw.IntentFirewallTest.xml"
+    },
+    {
+        "suite":  "com.merxury.core.ifw.model.IfwFilterTest",
+        "tests":  25,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ifw-api\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.core.ifw.model.IfwFilterTest.xml"
+    },
+    {
+        "suite":  "com.merxury.core.ifw.model.IfwRulesTest",
+        "tests":  5,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ifw-api\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.core.ifw.model.IfwRulesTest.xml"
+    },
+    {
+        "suite":  "com.merxury.core.ifw.model.StringMatcherTest",
+        "tests":  9,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ifw-api\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.core.ifw.model.StringMatcherTest.xml"
+    },
+    {
+        "suite":  "com.merxury.core.ifw.xml.IfwXmlDeserializerTest",
+        "tests":  25,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ifw-api\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.core.ifw.xml.IfwXmlDeserializerTest.xml"
+    },
+    {
+        "suite":  "com.merxury.core.ifw.xml.IfwXmlRoundTripTest",
+        "tests":  9,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ifw-api\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.core.ifw.xml.IfwXmlRoundTripTest.xml"
+    },
+    {
+        "suite":  "com.merxury.core.ifw.xml.IfwXmlSerializerTest",
+        "tests":  15,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ifw-api\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.core.ifw.xml.IfwXmlSerializerTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.navigation.NavigatorTest",
+        "tests":  12,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\navigation\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.navigation.NavigatorTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.network.io.BinaryFileWriterUnitTest",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\network\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.network.io.BinaryFileWriterUnitTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.AppListItemScreenshotTests",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.AppListItemScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.AppListScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.AppListScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.CollapseItemScreenshotTests",
+        "tests":  3,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.CollapseItemScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.CollapseListScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.CollapseListScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.ComponentListItemScreenshotTests",
+        "tests":  3,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.ComponentListItemScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.ComponentListScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.ComponentListScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.EmptyScreenScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.EmptyScreenScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.ErrorScreenScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.ErrorScreenScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.GeneralRulesListScreenshotTests",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.GeneralRulesListScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.InitializingScreenScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.InitializingScreenScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.LoadingScreenScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.LoadingScreenScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.NoComponentScreenScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.NoComponentScreenScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.RuleItemScreenshotTests",
+        "tests":  3,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.RuleItemScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.SelectedAppTopBarScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.SelectedAppTopBarScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.core.ui.SettingItemScreenshotTests",
+        "tests":  9,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "core\\ui\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.core.ui.SettingItemScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.appdetail.impl.AppDetailScreenScreenshotTests",
+        "tests":  22,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\appdetail\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.appdetail.impl.AppDetailScreenScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.appdetail.impl.AppDetailViewModelTest",
+        "tests":  13,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\appdetail\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.appdetail.impl.AppDetailViewModelTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.appdetail.impl.ComponentSortBottomSheetScreenshotTests",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\appdetail\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.appdetail.impl.ComponentSortBottomSheetScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.appdetail.impl.ComponentSortViewModelTest",
+        "tests":  5,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\appdetail\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.appdetail.impl.ComponentSortViewModelTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.applist.impl.AppListScreenScreenshotTests",
+        "tests":  8,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\applist\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.applist.impl.AppListScreenScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.applist.impl.AppListViewModelTest",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\applist\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.applist.impl.AppListViewModelTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.applist.impl.AppSortBottomSheetScreenshotTests",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\applist\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.applist.impl.AppSortBottomSheetScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.applist.impl.AppSortViewModelTest",
+        "tests":  5,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\applist\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.applist.impl.AppSortViewModelTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.debloater.impl.DebloaterScreenScreenshotTest",
+        "tests":  8,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\debloater\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.debloater.impl.DebloaterScreenScreenshotTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.debloater.impl.DebloaterViewModelTest",
+        "tests":  27,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\debloater\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.debloater.impl.DebloaterViewModelTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.navigation.impl.GeneralRuleScreenScreenshotTests",
+        "tests":  8,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\generalrule\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.navigation.impl.GeneralRuleScreenScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.navigation.impl.GeneralRuleViewModelTest",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\generalrule\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.navigation.impl.GeneralRuleViewModelTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.globalifwrule.impl.GlobalIfwRuleMapperTest",
+        "tests":  5,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\globalifwrule\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.globalifwrule.impl.GlobalIfwRuleMapperTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.globalifwrule.impl.GlobalIfwRuleViewModelTest",
+        "tests":  1,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\globalifwrule\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.globalifwrule.impl.GlobalIfwRuleViewModelTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.ifwrule.impl.IfwRuleEditorViewModelTest",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\ifwrule\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.ifwrule.impl.IfwRuleEditorViewModelTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.ifwrule.impl.model.IfwRuleUiMapperTest",
+        "tests":  8,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\ifwrule\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.ifwrule.impl.model.IfwRuleUiMapperTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.ruledetail.impl.RuleDetailScreenScreenshotTests",
+        "tests":  10,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\ruledetail\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.ruledetail.impl.RuleDetailScreenScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.ruledetail.impl.RuleDetailViewModelTest",
+        "tests":  8,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\ruledetail\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.ruledetail.impl.RuleDetailViewModelTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.search.impl.SearchScreenScreenshotTests",
+        "tests":  18,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\search\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.search.impl.SearchScreenScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.search.impl.SearchViewModelTest",
+        "tests":  11,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\search\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.search.impl.SearchViewModelTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.impl.settings.LicensesScreenScreenshotTest",
+        "tests":  4,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\settings\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.impl.settings.LicensesScreenScreenshotTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.impl.settings.SettingsScreenScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\settings\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.impl.settings.SettingsScreenScreenshotTests.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.impl.settings.SettingsViewModelTest",
+        "tests":  3,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\settings\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.impl.settings.SettingsViewModelTest.xml"
+    },
+    {
+        "suite":  "com.merxury.blocker.feature.impl.settings.SupportAndFeedbackScreenScreenshotTests",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\settings\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-com.merxury.blocker.feature.impl.settings.SupportAndFeedbackScreenScreenshotTests.xml"
+    },
+    {
+        "suite":  "LicensesViewModelTest",
+        "tests":  2,
+        "failures":  0,
+        "errors":  0,
+        "skipped":  0,
+        "report":  "feature\\settings\\impl\\build\\test-results\\testFossDebugUnitTest\\TEST-LicensesViewModelTest.xml"
+    }
+]

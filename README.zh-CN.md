@@ -1,4 +1,14 @@
 ## Blocker
+
+### 本分支发行版
+
+- **2.1.0 / versionCode 6443**，独立包名 `com.stc214.blocker`，独立发行签名。
+- [下载 APK、校验值及回滚说明](dist/README.md)
+- [发行说明与验证范围](docs/RELEASE-2.1.0.zh-CN.md)
+- [AdClose 完整使用流程](docs/ADCLOSE-GUIDE.zh-CN.md)
+
+下方保留的徽章和应用商店链接属于上游项目，不是本分支发行包。
+
 [![release](https://img.shields.io/github/v/release/lihenggui/blocker?label=release&color=red)](https://github.com/lihenggui/blocker/releases)
 [![download](https://shields.io/github/downloads/lihenggui/blocker/total?label=download)](https://github.com/lihenggui/blocker/releases/latest)
 [![translation](https://weblate.sanmer.app/widget/blocker/svg-badge.svg)](https://weblate.sanmer.app/engage/blocker/)

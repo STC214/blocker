@@ -1,0 +1,8 @@
+﻿{
+    "suites":  96,
+    "tests":  655,
+    "failures":  0,
+    "errors":  0,
+    "skipped":  0,
+    "screenshotBaselineVerification":  "Excluded on Windows; requires Linux"
+}

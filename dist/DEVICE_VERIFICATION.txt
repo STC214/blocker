@@ -1,0 +1,31 @@
+Historical device run: 2026-10-16, candidate before the provider export restriction.
+Candidate APK filename at test time: blocker-2.1.0-foss-release.apk
+SHA256: 1c6e8ef8203c9474a727f1722f73f9d5a9be650b9f9adf3cc8bf6c3e404c001a
+Final distribution APK SHA256: f46610671260c422cfc2f9373f1af71f1a7037bfc6b86c7d35d86ddd5440f71f
+The final APK was rebuilt after setting ComponentProvider exported=false.
+On 2026-10-17 ADB reported no connected devices; this is not a claim of a new device run on the final APK.
+Device: Android 17 / API 37, root (serial omitted from public record)
+Input: reserved empty rule com.blocker.ifwpatch.audit20261016.xml only
+XML inputs: <rules /> and <rules></rules>
+Baseline branch: original RootWriteFileCommand against immutable IFW directory
+Modified branch: RootMutateIfwCommand, including Parcelable roundtrip
+R8 mapping: Continuation=em0, EmptyCoroutineContext=h81, INSTANCE=f, Result.Failure=gw3, exception=f
+Harness: diagnostics/ifw-lock-patch/IfwPatchDeviceTest.java (local workspace evidence)
+
+Command (device serial redacted; exact local record retained in diagnostics):
+adb -s DEVICE_SERIAL shell su -c 'env CLASSPATH=/data/local/tmp/blocker-release-audit.apk:/data/local/tmp/blocker-release-test.jar /system/bin/app_process /system/bin IfwPatchDeviceTest em0 h81 f gw3 f'
+
+Literal output:
+BASELINE_EXPECTED_FAILURE=java.io.FileNotFoundException: /data/system/ifw/com.blocker.ifwpatch.audit20261016.xml: open failed: EPERM (Operation not permitted)
+PASS_INITIAL_IMMUTABLE=false
+PASS_INITIAL_IMMUTABLE=true
+EXPECTED_WRITE_FAILURE=android.system.ErrnoException: rename failed: EPERM (Operation not permitted)
+EXPECTED_DELETE_FAILURE=java.io.IOException: Failed to delete IFW rules: /data/system/ifw/com.blocker.ifwpatch.audit20261016.xml
+PASS_FAILURE_RELOCK_AND_ATOMIC_WRITE
+PASS_EIGHT_CONCURRENT_ROOT_MUTATIONS
+PASS_CLEANUP_NO_TEST_RULE_REMAINS
+DEVICE_TEST_EXIT=0
+
+ADB exit status: 0
+The expected baseline failure and injected write/delete failures are passing negative tests.
+This executes actual optimized APK root commands, not every UI screen or the root IPC service handshake.

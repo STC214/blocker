@@ -1,5 +1,13 @@
 [中文README](https://github.com/lihenggui/blocker/blob/main/README.zh-CN.md)
 
+## This fork: STC214 release
+
+- [Independent signed APK and release notes](dist/README.md): version **2.1.0**, application ID `com.stc214.blocker`.
+- [中文发行说明与验证范围](docs/RELEASE-2.1.0.zh-CN.md)
+- [AdClose 完整使用流程及与 Blocker 的配合](docs/ADCLOSE-GUIDE.zh-CN.md)
+
+The badges and store links below refer to upstream Blocker, not this independently signed build.
+
 ## Blocker
 [![release](https://img.shields.io/github/v/release/lihenggui/blocker?label=release&color=red)](https://github.com/lihenggui/blocker/releases)
 [![download](https://shields.io/github/downloads/lihenggui/blocker/total?label=download)](https://github.com/lihenggui/blocker/releases/latest)

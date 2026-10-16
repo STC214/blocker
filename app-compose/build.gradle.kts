@@ -34,12 +34,9 @@ plugins {
 android {
     namespace = "com.merxury.blocker"
     defaultConfig {
-        applicationId = "com.merxury.blocker"
-        val gitCommitCount = providers.exec {
-            commandLine("git", "rev-list", "--count", "HEAD")
-        }.standardOutput.asText.get().trim()
-        versionCode = gitCommitCount.toIntOrNull() ?: 1
-        versionName = "2.0.$gitCommitCount" // X.Y.Z; X = Major, Y = minor, Z = version code
+        applicationId = "com.stc214.blocker"
+        versionCode = 6443
+        versionName = "2.1.0"
 
         // Custom test runner to set up Hilt dependency graph
         testInstrumentationRunner = "com.merxury.blocker.core.testing.BlockerTestRunner"
@@ -63,8 +60,8 @@ android {
                 "proguard-rules.pro",
             )
 
-            // To publish on the Play store a private signing key is required, but to allow anyone
-            // who clones the code to sign and run the release variant, use the debug signing key.
+            // Distribution requires an independent key supplied outside the repository.
+            // Without credentials, build an unsigned APK rather than silently using a debug key.
             val releaseStoreFile = providers.gradleProperty("releaseStoreFile")
             signingConfig = if (releaseStoreFile.isPresent) {
                 signingConfigs.create("release") {
@@ -74,7 +71,7 @@ android {
                     keyPassword = providers.gradleProperty("releaseKeyPassword").get()
                 }
             } else {
-                signingConfigs.named("debug").get()
+                null
             }
         }
     }

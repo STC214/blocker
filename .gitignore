@@ -1,5 +1,6 @@
 # Built application files
 *.apk
+!/dist/*.apk
 *.ap_
 app/release/
 
@@ -51,6 +52,9 @@ captures/
 
 # Keystore files
 *.jks
+*.keystore
+*.p12
+credentials.xml
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild

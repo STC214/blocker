@@ -23,7 +23,6 @@
             android:name=".ComponentProvider"
             android:authorities="${applicationId}.provider.ComponentProvider"
             android:enabled="true"
-            android:exported="true"
-            tools:ignore="ExportedContentProvider" />
+            android:exported="false" />
     </application>
 </manifest>

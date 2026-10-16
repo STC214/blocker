@@ -18,14 +18,13 @@ package com.merxury.core.ifw
 
 import com.merxury.blocker.core.dispatchers.BlockerDispatchers.IO
 import com.merxury.blocker.core.dispatchers.Dispatcher
-import com.merxury.blocker.core.root.RootChmodCommand
 import com.merxury.blocker.core.root.RootCommandExecutor
-import com.merxury.blocker.core.root.RootDeleteFileCommand
 import com.merxury.blocker.core.root.RootFileExistsCommand
 import com.merxury.blocker.core.root.RootListFilesCommand
+import com.merxury.blocker.core.root.RootMutateIfwCommand
 import com.merxury.blocker.core.root.RootReadFileCommand
-import com.merxury.blocker.core.root.RootWriteFileCommand
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 import javax.inject.Inject
@@ -44,30 +43,24 @@ internal class LibrootIfwFileSystem @Inject constructor(
             Timber.v("Rule file $filename does not exist")
             return@withContext null
         }
-        return@withContext try {
-            rootCommandExecutor.execute(RootReadFileCommand(path)).value
-        } catch (e: Exception) {
-            Timber.e(e, "Error reading rules file $path")
-            null
-        }
+        // Only a missing file is empty. Failed reads must never become destructive writes.
+        rootCommandExecutor.execute(RootReadFileCommand(path)).value
     }
 
     override suspend fun writeRules(packageName: String, content: String) = withContext(dispatcher) {
         val filename = "$packageName$EXTENSION"
         val path = IfwStorageUtils.ifwFolder + filename
-        rootCommandExecutor.execute(RootWriteFileCommand(path, content))
-        rootCommandExecutor.execute(RootChmodCommand(path, 644, recursively = false))
+        // Keep the root session alive until relock completes, even when the UI job is cancelled.
+        withContext(NonCancellable) {
+            rootCommandExecutor.execute(RootMutateIfwCommand(IfwStorageUtils.ifwFolder, packageName, content))
+        }
         Timber.i("Saved IFW rules to $path")
     }
 
     override suspend fun deleteRules(packageName: String): Boolean = withContext(dispatcher) {
-        val filename = "$packageName$EXTENSION"
-        val path = IfwStorageUtils.ifwFolder + filename
-        if (rootCommandExecutor.execute(RootFileExistsCommand(path)).value) {
-            Timber.d("Deleting IFW rule file $filename")
-            rootCommandExecutor.execute(RootDeleteFileCommand(path, recursively = false)).value
-        } else {
-            false
+        // Includes absent files: every attempted mutation finishes with the directory locked.
+        withContext(NonCancellable) {
+            rootCommandExecutor.execute(RootMutateIfwCommand(IfwStorageUtils.ifwFolder, packageName, null)).value
         }
     }
 
